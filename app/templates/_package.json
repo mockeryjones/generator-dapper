@@ -1,0 +1,25 @@
+{
+  "name": "<%=projectFile%>",
+  "version": "0.0.1",
+  "homepage": "https://github.com/yieldbot/<%=projectFile%>",
+  "author": "Yieldbot, Inc.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yieldbot/<%=projectFile%>.git"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-jscs-checker": "~0.3.2",
+    "grunt-nexus-artifact": "~0.3.3",
+    "jshint-stylish": "~0.1.5",
+    "matchdep": "~0.3.0"
+  }
+}

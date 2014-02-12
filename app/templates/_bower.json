@@ -1,0 +1,29 @@
+  "name": "<%=projectFile%>",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "app",
+    "node_modules",
+    "reports",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "angular": "1.2.2",
+    "angular-route": "1.2.2",
+    "angular-bootstrap": "0.7.0",
+    "async": "~0.2.5",
+    "bootstrap": "https://s3.amazonaws.com/artifacts.yieldbot.com/bootstrap/3.0.3-ybot.tar.gz",
+    "d3": "~3.3.6",
+    "jquery": "~1.10.0",
+    "lodash": "~2.4.0",
+    "moment": "~2.4.0",
+    "qs": "rcullito/qs-browser",
+    "scruffy": "http://nexus.yb0t.cc/content/repositories/yb-public-snapshots/com/yieldbot/js/scruffy/0.0.1.SNAPSHOT/scruffy-0.0.1.SNAPSHOT.tar.gz",
+    "vega": "~1.3.3",
+    "pikaday": "1.1.0",
+    "handsontable": "0.10.2",
+    "jquery-mousewheel": "3.1.9"
+  }
+}
+
