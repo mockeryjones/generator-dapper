@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="<%=projectName%>">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%=projectName%></title>
+    <meta name="viewport" content="width=device-width">
+    <!-- core yieldbot style BEGIN -->
+    <link rel="stylesheet"    href="//fonts.googleapis.com/css?family=Roboto:100">
+    <link rel="shortcut icon" href="/bower_components/scruffy/dist/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet"    href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet"    href="/bower_components/scruffy/dist/css/scruffy.css">
+    <!-- core yieldbot style END -->
+    <link rel="stylesheet" href="/bower_components/<%=projectName%>/dist/css/main.css">
+  </head>
+  <body>
+    <div ng-view=""></div>
+    <script src="/bower_components/<%=projectName%>/dist/js/vendor.js"></script>
+    <script src="/bower_components/<%=projectName%>/dist/js/<%=projectName%>.js"></script>
+  </body>
+</html>

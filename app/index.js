@@ -48,6 +48,7 @@ DapperGenerator.prototype.askFor = function askFor() {
 DapperGenerator.prototype.app = function app() {
   this.mkdir('app');
   this.mkdir('app/templates');
+  this.mkdir('app/templates/directives');
   this.mkdir('app/scripts');
   this.mkdir('app/scripts/controllers');
   this.mkdir('app/scripts/directives');
@@ -61,10 +62,16 @@ DapperGenerator.prototype.app = function app() {
 
 
   this.copy('_app.js', 'app/scripts/app.js');
+  this.copy('_index.html', 'app/index.html');
+  this.copy('_header.html', 'app/templates/directives/header.html');
+  this.copy('_main.html', 'app/templates/main.html');
   this.copy('_index_controllers.js', 'app/scripts/controllers/index.js');
   this.copy('_index_directives.js', 'app/scripts/directives/index.js');
+  this.copy('_core_directives.js', 'app/scripts/directives/core.js');
+  this.copy('_yb_select_directives.js', 'app/scripts/directives/ybselect.js');
   this.copy('_index_filters.js', 'app/scripts/filters/index.js');
   this.copy('_index_services.js', 'app/scripts/services/index.js');
+  this.copy('_main.css', 'app/styles/main.css');
 };
 
 DapperGenerator.prototype.projectfiles = function projectfiles() {
