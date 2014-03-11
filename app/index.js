@@ -26,6 +26,24 @@ DapperGenerator.prototype.askFor = function askFor() {
   var prompts = [{
     name: 'projectName',
     message: 'What Will You Call This Project?',
+  },
+  {
+    type: 'confirm',
+    message: 'Update package.json?',
+    name: 'packageUpdate',
+    default: true
+  },
+  {
+    type: 'confirm',
+    message: 'Update bower.json?',
+    name: 'bowerUpdate',
+    default: true
+  },  
+  {
+    type: 'confirm',
+    message: 'Update Gruntfile?',
+    name: 'gruntUpdate',
+    default: true
   }];
 
   var webify = function(string) {
@@ -39,7 +57,9 @@ DapperGenerator.prototype.askFor = function askFor() {
   this.prompt(prompts, function (props) {
     this.projectName = _s.camelize(props.projectName);
     this.projectFile = _s.dasherize(props.projectName);
-
+    this.packageUpdate = props.packageUpdate;
+    this.bowerUpdate = props.bowerUpdate;
+    this.gruntUpdate = props.gruntUpdate;
 
     cb();
   }.bind(this));
@@ -56,9 +76,17 @@ DapperGenerator.prototype.app = function app() {
   this.mkdir('app/scripts/services');
   this.mkdir('app/styles');
   
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
-  this.copy('_Gruntfile.js', 'Gruntfile.js');
+  if(this.packageUpdate === true) {
+    this.copy('_package.json', 'package.json');
+  }
+
+  if(this.bowerUpdate === true) {
+    this.copy('_bower.json', 'bower.json');
+  }
+
+  if(this.gruntUpdate === true) {
+    this.copy('_Gruntfile.js', 'Gruntfile.js');
+  }
 
 
   this.copy('_app.js', 'app/scripts/app.js');

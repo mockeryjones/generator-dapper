@@ -115,8 +115,7 @@ module.exports = function (grunt) {
         expand: true,
         cwd: 'app',
         src: [
-          'bower_components/pikaday/css/pikaday.css',
-          'bower_components/handsontable/dist/jquery.handsontable.full.css',
+          
         ],
         dest: 'dist/css/'
       },
