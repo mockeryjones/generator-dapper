@@ -29,13 +29,13 @@ DapperGenerator.prototype.askFor = function askFor() {
   },
   {
     type: 'confirm',
-    message: 'Update package.json?',
+    message: 'Update Package?',
     name: 'packageUpdate',
     default: true
   },
   {
     type: 'confirm',
-    message: 'Update bower.json?',
+    message: 'Update Bower?',
     name: 'bowerUpdate',
     default: true
   },  
@@ -43,6 +43,12 @@ DapperGenerator.prototype.askFor = function askFor() {
     type: 'confirm',
     message: 'Update Gruntfile?',
     name: 'gruntUpdate',
+    default: true
+  },
+  {
+    type: 'confirm',
+    message: 'Set Project Contents To Default?',
+    name: 'scaffoldUpdate',
     default: true
   }];
 
@@ -60,6 +66,7 @@ DapperGenerator.prototype.askFor = function askFor() {
     this.packageUpdate = props.packageUpdate;
     this.bowerUpdate = props.bowerUpdate;
     this.gruntUpdate = props.gruntUpdate;
+    this.scaffoldUpdate = props.scaffoldUpdate;
 
     cb();
   }.bind(this));
@@ -88,18 +95,19 @@ DapperGenerator.prototype.app = function app() {
     this.copy('_Gruntfile.js', 'Gruntfile.js');
   }
 
-
-  this.copy('_app.js', 'app/scripts/app.js');
-  this.copy('_index.html', 'app/index.html');
-  this.copy('_header.html', 'app/templates/directives/header.html');
-  this.copy('_main.html', 'app/templates/main.html');
-  this.copy('_index_controllers.js', 'app/scripts/controllers/index.js');
-  this.copy('_index_directives.js', 'app/scripts/directives/index.js');
-  this.copy('_core_directives.js', 'app/scripts/directives/core.js');
-  this.copy('_yb_select_directives.js', 'app/scripts/directives/ybselect.js');
-  this.copy('_index_filters.js', 'app/scripts/filters/index.js');
-  this.copy('_index_services.js', 'app/scripts/services/index.js');
-  this.copy('_main.css', 'app/styles/main.css');
+  if(this.scaffoldUpdate === true) {
+    this.copy('_app.js', 'app/scripts/app.js');
+    this.copy('_index.html', 'app/index.html');
+    this.copy('_header.html', 'app/templates/directives/header.html');
+    this.copy('_main.html', 'app/templates/main.html');
+    this.copy('_index_controllers.js', 'app/scripts/controllers/index.js');
+    this.copy('_index_directives.js', 'app/scripts/directives/index.js');
+    this.copy('_core_directives.js', 'app/scripts/directives/core.js');
+    this.copy('_yb_select_directives.js', 'app/scripts/directives/ybselect.js');
+    this.copy('_index_filters.js', 'app/scripts/filters/index.js');
+    this.copy('_index_services.js', 'app/scripts/services/index.js');
+    this.copy('_main.css', 'app/styles/main.css');
+  }
 };
 
 DapperGenerator.prototype.projectfiles = function projectfiles() {
