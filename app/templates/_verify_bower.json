@@ -1,0 +1,7 @@
+{
+  "name": "<%=projectName%>-validate",
+  "version": "0.0.1",
+  "devDependencies": {
+    "nibbler": "http://nexus.yb0t.cc/service/local/artifact/maven/content?r=yb-public-snapshots&p=tar.gz&g=com.yieldbot.ui-app&a=<%=projectName%>&v=0.0.1.SNAPSHOT"
+  }
+}

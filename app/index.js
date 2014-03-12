@@ -82,6 +82,7 @@ DapperGenerator.prototype.app = function app() {
   this.mkdir('app/scripts/filters');
   this.mkdir('app/scripts/services');
   this.mkdir('app/styles');
+  this.mkdir('verify');
   
   if(this.packageUpdate === true) {
     this.copy('_package.json', 'package.json');
@@ -108,6 +109,9 @@ DapperGenerator.prototype.app = function app() {
     this.copy('_index_services.js', 'app/scripts/services/index.js');
     this.copy('_main.css', 'app/styles/main.css');
   }
+
+  this.copy('_pom.xml', 'pom.xml');
+  this.copy('_verify_bower.json', 'verify/bower.json');
 };
 
 DapperGenerator.prototype.projectfiles = function projectfiles() {
