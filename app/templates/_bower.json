@@ -20,7 +20,7 @@
     "lodash": "~2.4.0",
     "moment": "~2.4.0",
     "qs": "rcullito/qs-browser",
-    "scruffy": "http://nexus.yb0t.cc/content/repositories/yb-public-snapshots/com/yieldbot/js/scruffy/0.0.1.SNAPSHOT/scruffy-0.0.1.SNAPSHOT.tar.gz",
+    "scruffy":  "http://nexus.yb0t.cc/service/local/artifact/maven/content?r=yb-public-snapshots&p=tar.gz&g=com.yieldbot.js&a=scruffy&v=0.0.1.SNAPSHOT",
     "vega": "~1.3.3"
   }
 }

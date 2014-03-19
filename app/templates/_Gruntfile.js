@@ -125,48 +125,21 @@ module.exports = function (grunt) {
       },
     },
 
-    nexus: {
-      options: {
-        url: 'http://nexus.yb0t.cc',
-        username: process.env.NEXUS_BUILDER_USER,
-        password: process.env.NEXUS_BUILDER_PASS,
-        base_path: 'content/repositories'
-      },
-      files: [
-        {
-          expand: true,
-          src: ['dist/**/*']
-        },
-        {
-          src: ['bower.json', 'README.md']
-        },
-      ],
-      snapshot: {
-        files: '<%= nexus.files %>',
+    compress: {
+      dist: {
         options: {
-          repository: 'yb-public-snapshots',
-          // Changing this to false seems to have issues pushing the actual archive to Nexus
-          curl: true,
-          publish: [{
-            id: 'com.yieldbot.ui-app:<%= pkg.name %>:tar.gz',
-            version: '<%= pkg.version %>.SNAPSHOT',
-            path: 'target/'
-          }]
-        }
+          archive: 'target/dist.tar.gz',
+        },
+        files: [
+          {
+            expand: true,
+            src: ['dist/**/*']
+          },
+          {
+            src: ['bower.json', 'README.md']
+          },
+        ],
       },
-      release: {
-        files: '<%= nexus.files %>',
-        options: {
-          repository: 'yb-public-releases',
-          // Changing this to false seems to have issues pushing the actual archive to Nexus
-          curl: true,
-          publish: [{
-            id: 'com.yieldbot.ui-app:<%= pkg.name %>:tar.gz',
-            version: '<%= pkg.version %>',
-            path: 'target/'
-          }]
-        }
-      }
     },
 
     watch: {
@@ -214,13 +187,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-html', ['copy:html', 'copy:index']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-html', 'dist-js']);
-
-  // Artifact snapshot task.
-  grunt.registerTask('snapshot', ['dist', 'nexus:snapshot:publish']);
-
-  // Artifact release task.
-  grunt.registerTask('release', ['dist', 'nexus:release:publish']);
+  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-html', 'dist-js', 'compress:dist']);
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist']);
