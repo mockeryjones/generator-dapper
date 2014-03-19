@@ -29,26 +29,38 @@ DapperGenerator.prototype.askFor = function askFor() {
   },
   {
     type: 'confirm',
-    message: 'Update Package?',
+    message: 'use default Package config?',
     name: 'packageUpdate',
     default: true
   },
   {
     type: 'confirm',
-    message: 'Update Bower?',
+    message: 'use default Bower config?',
     name: 'bowerUpdate',
     default: true
   },  
   {
     type: 'confirm',
-    message: 'Update Gruntfile?',
+    message: 'use default Gruntfile?',
     name: 'gruntUpdate',
     default: true
   },
   {
     type: 'confirm',
-    message: 'Set Project Contents To Default?',
+    message: 'use default contents?',
     name: 'scaffoldUpdate',
+    default: true
+  },
+  {
+    type: 'confirm',
+    message: 'use default README file?',
+    name: 'readmeUpdate',
+    default: true
+  },
+  {
+    type: 'confirm',
+    message: 'use default jshint and checkstyle config?',
+    name: 'hintUpdate',
     default: true
   }];
 
@@ -67,7 +79,8 @@ DapperGenerator.prototype.askFor = function askFor() {
     this.bowerUpdate = props.bowerUpdate;
     this.gruntUpdate = props.gruntUpdate;
     this.scaffoldUpdate = props.scaffoldUpdate;
-
+    this.readmeUpdate = props.readmeUpdate;
+    this.hintUpdate = props.hintUpdate;
     cb();
   }.bind(this));
 };
@@ -112,9 +125,17 @@ DapperGenerator.prototype.app = function app() {
 
   this.copy('_pom.xml', 'pom.xml');
   this.copy('_verify_bower.json', 'verify/bower.json');
+
+  if(this.hintUpdate === true) {
+    this.copy('_jshintrc', '.jshintrc');
+    this.copy('_jscsrc', '.jscsrc');
+  }
+
+  if(this.readmeUpdate === true) {
+    this.copy('_README.md', '_README.md');
+  }
 };
 
 DapperGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
 };

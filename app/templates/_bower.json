@@ -12,7 +12,7 @@
   "devDependencies": {
     "angular": "1.2.2",
     "angular-route": "1.2.2",
-    "angular-bootstrap": "0.7.0",
+    "angular-ui-router": "~0.2.8",
     "async": "~0.2.5",
     "bootstrap": "https://s3.amazonaws.com/artifacts.yieldbot.com/bootstrap/3.0.3-ybot.tar.gz",
     "d3": "~3.3.6",
